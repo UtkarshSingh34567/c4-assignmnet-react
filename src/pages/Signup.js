@@ -6,7 +6,7 @@ const Signup = () => {
   debugger;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);  // For error handling
+  const [error, setError] = useState(null); 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -14,13 +14,10 @@ const Signup = () => {
     e.preventDefault();
     try {
   debugger;
-      // Make an API call to register a new user
       const response = await axios.post('http://localhost:3000/api/register', { username, password });
-      // const response = await axios.post('/api/register', { username, password });
       debugger;
       console.log('Signup successful', response.data);
       
-      // After successful registration, redirect to the login page
       navigate('/login');
     } catch (err) {
       console.error('Signup error:', err.response ? err.response.data : err.message);
